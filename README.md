@@ -1,0 +1,2 @@
+# greeting
+Rust start.

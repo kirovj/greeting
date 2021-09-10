@@ -8,10 +8,11 @@ fn main() {
     print_number(one);
     print_number(two);
 }
+
 fn print_number(n: Number) {
-    if let Number { odd: true, value } = n {
-        println!("Odd number: {}", value);
-    } else if let Number { odd: false, value } = n {
-        println!("Even number: {}", value);
+    match n.value {
+        1 => println!("One"),
+        2 => println!("Two"),
+        _ => println!("{}", n.value),
     }
 }

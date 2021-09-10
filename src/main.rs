@@ -3,16 +3,17 @@ struct Number {
     value: i32,
 }
 
-impl Number {
-    fn is_strictly_positive(self) -> bool {
-        self.value > 0
+trait Signed {
+    fn is_strictly_negative(self) -> bool;
+}
+
+impl Signed for Number {
+    fn is_strictly_negative(self) -> bool {
+        self.value < 0
     }
 }
 
 fn main() {
-    let mut n = Number {
-        odd: true,
-        value: 17
-    };
-    n.value = 19; // all good
+    let n = Number { odd: false, value: -44 };
+    println!("{}", n.is_strictly_negative()); // prints "true"
 }

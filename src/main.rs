@@ -3,16 +3,19 @@ struct Number {
     value: i32,
 }
 
-trait Signed {
-    fn is_strictly_negative(self) -> bool;
-}
-
-impl Signed for i32 {
-    fn is_strictly_negative(self) -> bool {
-        self < 0
+// the `Neg` trait is used to overload `-`, the
+// unary minus operator.
+impl std::ops::Neg for Number {
+    type Output = Number;
+    fn neg(self) -> Number {
+        Number {
+            value: -self.value,
+            odd: self.odd,
+        }        
     }
 }
 fn main() {
-    let n: i32 = -44;
-    println!("{}", n.is_strictly_negative()); // prints "true"
+    let n = Number { odd: true, value: 987 };
+    let m = -n; // this is only possible because we implemented `Neg`
+    println!("{}", m.value); // prints "-987"
 }

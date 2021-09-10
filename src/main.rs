@@ -6,9 +6,9 @@ struct Number {
 // the `Neg` trait is used to overload `-`, the
 // unary minus operator.
 impl std::ops::Neg for Number {
-    type Output = Number;
-    fn neg(self) -> Number {
-        Number {
+    type Output = Self;
+    fn neg(self) -> Self {
+        Self {
             value: -self.value,
             odd: self.odd,
         }        

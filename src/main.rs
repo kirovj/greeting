@@ -1,12 +1,13 @@
-use std::fmt::Debug;
-fn compare<T>(left: T, right: T)
-where
-    T: Debug + PartialEq,
-{
-    println!("{:?} {} {:?}", left, if left == right { "==" } else { "!=" }, right);
+struct Pair<T> {
+    a: T,
+    b: T,
+}
+fn print_type_name<T>(_val: &T) {
+    println!("{}", std::any::type_name::<T>());
 }
 fn main() {
-    use std::any::type_name;
-    println!("{}", type_name::<i32>()); // prints "i32"
-    println!("{}", type_name::<(f64, char)>()); // prints "(f64, char)"
+    let p1 = Pair { a: 3, b: 9 };
+    let p2 = Pair { a: true, b: false };
+    print_type_name(&p1); // prints "Pair<i32>"
+    print_type_name(&p2); // prints "Pair<bool>"
 }

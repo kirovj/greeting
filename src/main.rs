@@ -18,8 +18,11 @@ impl std::ops::Neg for Number {
 fn print_i32(x: i32) {
     println!("x = {}", x);
 }
+fn print_number(n: Number) {
+    println!("{} number {}", if n.odd { "odd" } else { "even" }, n.value);
+}
 fn main() {
     let n = Number { odd: true, value: 51 };
-    let m = n; // `n` is moved into `m`
-    let o = n; // error: use of moved value: `n`
+    print_number(n); // `n` is moved
+    print_number(n); // error: use of moved value: `n`
 }

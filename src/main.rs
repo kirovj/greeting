@@ -1,16 +1,17 @@
-struct Vec2 {
-    x: f64, // 64-bit floating point, aka "double precision"
-    y: f64,
+struct Number {
+    odd: bool,
+    value: i32,
 }
-
 fn main() {
-    // let v1 = Vec2 { x: 1.0, y: 3.0 };
-    let v2 = Vec2 { y: 2.0, x: 4.0 };
-    let v3 = Vec2 {
-        x: 14.0,
-        ..v2
-    };
-    let v4 = Vec2 { ..v3 };
-    println!("v3  {}: {}", v3.x, v3.y);
-    println!("v4  {}: {}", v4.x, v4.y);
+    let one = Number { odd: true, value: 1 };
+    let two = Number { odd: false, value: 2 };
+    print_number(one);
+    print_number(two);
+}
+fn print_number(n: Number) {
+    if let Number { odd: true, value } = n {
+        println!("Odd number: {}", value);
+    } else if let Number { odd: false, value } = n {
+        println!("Even number: {}", value);
+    }
 }

@@ -10,10 +10,10 @@ impl Number {
 }
 
 fn main() {
-    let minus_two = Number {
-        odd: false,
-        value: -2,
+    let n = Number {
+        odd: true,
+        value: 17,
     };
-    println!("positive? {}", minus_two.is_strictly_positive());
-    // this prints "positive? false"
+    n.odd = false; // error: cannot assign to `n.odd`,
+                   // as `n` is not declared to be mutable
 }

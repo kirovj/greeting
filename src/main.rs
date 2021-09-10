@@ -1,11 +1,10 @@
-
-fn print_type_name<T>(_val: &T) {
-    println!("{}", std::any::type_name::<T>());
-}
 fn main() {
-    let o1: Option<i32> = Some(128);
-    o1.unwrap(); // this is fine
-    let o2: Option<i32> = None;
-    o2.unwrap(); // this panics!
+    let formal = true;
+    let greeting = if formal {
+        // "if" keyword used here as an expression
+        "Good day to you." // Returns the string "Good day to you."
+    } else {
+        "Hey!" // Returns the string "Hey!"
+    };
+    println!("{}", greeting) // Prints "Good day to you."
 }
-// output: thread 'main' panicked at 'called `Option::unwrap()` on a `None` value', src/libcore/option.rs:378:21

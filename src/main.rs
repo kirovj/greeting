@@ -14,8 +14,12 @@ impl std::ops::Neg for Number {
         }        
     }
 }
+
+fn print_i32(x: i32) {
+    println!("x = {}", x);
+}
 fn main() {
-    let n = Number { odd: true, value: 987 };
-    let m = -n; // this is only possible because we implemented `Neg`
-    println!("{}", m.value); // prints "-987"
+    let a: i32 = 15;
+    print_i32(a); // `a` is copied
+    print_i32(a); // `a` is copied again
 }

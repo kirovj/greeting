@@ -7,6 +7,10 @@ enum WebEvent {
     WEClick { x: i64, y: i64 },
 }
 
+// WELoad 没有关联的数据类型或数据。
+// WEKeys 具有两个数据类型分别为 String 和 char 的字段。
+// WEMClick 包含命名字段为 x 和 y 以及字段的数据类型为 i64 的匿名结构。
+
 fn main() {
     let formal = true;
     let greeting = if formal {

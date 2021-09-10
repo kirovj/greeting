@@ -10,12 +10,9 @@ impl Number {
 }
 
 fn main() {
-    let n = Number {
+    let mut n = Number {
         odd: true,
-        value: 17,
+        value: 17
     };
-    n = Number {
-        odd: false,
-        value: 22,
-    }; // error: cannot assign twice to immutable variable `n`
+    n.value = 19; // all good
 }

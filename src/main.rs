@@ -3,16 +3,21 @@ struct Number {
     value: i32,
 }
 
-fn invert(n: &mut Number) {
-    n.value = -n.value;
+impl std::clone::Clone for Number {
+    fn clone(&self) -> Self {
+        Self { ..*self }
+    }
 }
+
 fn print_number(n: &Number) {
     println!("{} number {}", if n.odd { "odd" } else { "even" }, n.value);
 }
+
 fn main() {
-    // this time, `n` is mutable
-    let mut n = Number { odd: true, value: 51 };
+    let n = Number { odd: true, value: 51 };
+    let mut m = n.clone();
+    m.value += 100;
+    
     print_number(&n);
-    invert(&mut n); // `n is borrowed mutably - everything is explicit
-    print_number(&n);
+    print_number(&m);
 }

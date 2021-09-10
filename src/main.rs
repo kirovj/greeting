@@ -1,3 +1,6 @@
-fn foobar<L, R>(left: L, right: R) {
-    // do something with `left` and `right`
+fn print<T: Display>(value: T) {
+    println!("value = {}", value);
+}
+fn print<T: Debug>(value: T) {
+    println!("value = {:?}", value);
 }

@@ -1,6 +1,11 @@
-fn print<T: Display>(value: T) {
-    println!("value = {}", value);
+use std::fmt::Debug;
+fn compare<T>(left: T, right: T)
+where
+    T: Debug + PartialEq,
+{
+    println!("{:?} {} {:?}", left, if left == right { "==" } else { "!=" }, right);
 }
-fn print<T: Debug>(value: T) {
-    println!("value = {:?}", value);
+fn main() {
+    compare("tea", "coffee");
+    // prints: "tea" != "coffee"
 }

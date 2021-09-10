@@ -1,24 +1,23 @@
-// Define a tuple struct
-struct KeyPress(String, char);
+fn is_divisible_by(dividend: u32, divisor: u32) -> bool {
+    if divisor == 0 {
+        println!("\nError! Division by zero is not allowed.");
+        // To prevent division by zero, halt execution and return to the caller
+        return false;
+    } else if dividend % divisor > 0 {
+        println!(
+            "\n{} % {} has a remainder of {}.",
+            dividend,
+            divisor,
+            (dividend % divisor)
+        );
+    } else {
+        println!("\n{} % {} has no remainder.", dividend, divisor);
+    }
 
-// Define a classic struct
-struct MouseClick {
-    x: i64,
-    y: i64,
+    // Create the boolean value and return it to the function caller
+    dividend % divisor == 0
 }
 
-// Redefine the enum variants to use the data from the new structs
-// Update the page Load variant to have the boolean type
-enum WebEvent {
-    WELoad(bool),
-    WEClick(MouseClick),
-    WEKeys(KeyPress),
-}
 fn main() {
-    let we_load = WebEvent::WELoad(true);
-    // Instantiate a MouseClick struct and bind the coordinate values
-    let click = MouseClick { x: 100, y: 250 };
-
-    // Set the WEClick variant to use the data in the click struct
-    let we_click = WebEvent::WEClick(click);
+    is_divisible_by(5, 4);
 }

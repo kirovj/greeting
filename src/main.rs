@@ -7,13 +7,12 @@ trait Signed {
     fn is_strictly_negative(self) -> bool;
 }
 
-impl Signed for Number {
+impl Signed for i32 {
     fn is_strictly_negative(self) -> bool {
-        self.value < 0
+        self < 0
     }
 }
-
 fn main() {
-    let n = Number { odd: false, value: -44 };
+    let n: i32 = -44;
     println!("{}", n.is_strictly_negative()); // prints "true"
 }

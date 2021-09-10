@@ -16,4 +16,9 @@ enum WebEvent {
 }
 fn main() {
     let we_load = WebEvent::WELoad(true);
+    // Instantiate a MouseClick struct and bind the coordinate values
+    let click = MouseClick { x: 100, y: 250 };
+
+    // Set the WEClick variant to use the data in the click struct
+    let we_click = WebEvent::WEClick(click);
 }

@@ -14,6 +14,8 @@ fn main() {
         odd: true,
         value: 17,
     };
-    n.odd = false; // error: cannot assign to `n.odd`,
-                   // as `n` is not declared to be mutable
+    n = Number {
+        odd: false,
+        value: 22,
+    }; // error: cannot assign twice to immutable variable `n`
 }

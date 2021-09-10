@@ -2,17 +2,18 @@ struct Number {
     odd: bool,
     value: i32,
 }
-fn main() {
-    let one = Number { odd: true, value: 1 };
-    let two = Number { odd: false, value: 2 };
-    print_number(one);
-    print_number(two);
+
+impl Number {
+    fn is_strictly_positive(self) -> bool {
+        self.value > 0
+    }
 }
 
-fn print_number(n: Number) {
-    match n.value {
-        1 => println!("One"),
-        2 => println!("Two"),
-        _ => println!("{}", n.value),
-    }
+fn main() {
+    let minus_two = Number {
+        odd: false,
+        value: -2,
+    };
+    println!("positive? {}", minus_two.is_strictly_positive());
+    // this prints "positive? false"
 }

@@ -1,5 +1,7 @@
 {
     "editor.defaultFormatter": "matklad.rust-analyzer",
     "rust-analyzer.checkOnSave.enable": true,
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.fontWeight": 600,
+    "editor.fontSize": 18
 }

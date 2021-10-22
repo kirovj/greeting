@@ -1,25 +1,27 @@
 fn main() {
-    // s 进入作用域
-    let s = String::from("hello");
+    // gives_ownership 将返回值移给 s1
+    let s1 = gives_ownership();
 
-    // s 的值移动到函数里 ...
-    takes_ownership(s);
-    // ... 所以到这里不再有效
-    // println!("{}", s); 此时会有编译错误
+    // s2 进入作用域
+    let s2 = String::from("hello");
 
-    // x 进入作用域
-    let x = 5;
+    // s2 被移动到takes_and_gives_back 中,它也将返回值移给 s3
+    let s3 = takes_and_gives_back(s2);
 
-    // x 应该移动函数里，但 i32 是 Copy 的，所以在后面可继续使用 x
-    makes_copy(x);
-} // 这里, x 先移出了作用域，然后是 s。但因为 s 的值已被移走，所以不会有特殊操作
+    // println!("{}, {}, {}", s1, s2, s3); borrow of moved value: `s2`
+} // 这里, s3 移出作用域并被丢弃。s2 也移出作用域，但已被移走，
+  // 所以什么也不会发生。s1 移出作用域并被丢弃
 
-fn takes_ownership(some_string: String) {
-    // some_string 进入作用域
-    println!("{}", some_string);
-} // 这里，some_string 移出作用域并调用 `drop` 方法。占用的内存被释放
+fn gives_ownership() -> String {
+    // gives_ownership 将返回值移动给调用它的函数
 
-fn makes_copy(some_integer: i32) {
-    // some_integer 进入作用域
-    println!("{}", some_integer);
-} // 这里，some_integer 移出作用域。不会有特殊操作
+    // some_string 进入作用域.
+    let some_string = String::from("hello");
+    some_string // 返回 some_string 并移出给调用的函数
+}
+
+// takes_and_gives_back 将传入字符串并返回该值
+fn takes_and_gives_back(a_string: String) -> String {
+    // a_string 进入作用域
+    a_string // 返回 a_string 并移出给调用的函数
+}

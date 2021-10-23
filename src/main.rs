@@ -1,13 +1,12 @@
 fn main() {
     let s1 = String::from("hello");
 
-    let (s2, len) = calculate_length(s1);
+    let len = calculate_length(&s1);
 
-    println!("The length of '{}' is {}.", s2, len);
+    println!("The length of '{}' is {}.", s1, len);
 }
 
-fn calculate_length(s: String) -> (String, usize) {
-    let length = s.len(); // len() 返回字符串的长度
-
-    (s, length)
-}
+fn calculate_length(s: &String) -> usize {
+    // s 是对 String 的引用
+    s.len()
+} // 这里，s 离开了作用域。但因为它并不拥有引用值的所有权，所以什么也不会发生

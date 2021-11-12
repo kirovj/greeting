@@ -1,30 +1,13 @@
-struct User {
-    username: String,
-    email: String,
-    sign_in_count: u64,
-    active: bool,
-}
+struct Color(i32, i32, i32);
 
-fn new_user(username: String, email: String) -> User {
-    User {
-        username,
-        email,
-        active: true,
-        sign_in_count: 1,
-    }
-}
+struct Point(i32, i32, i32);
+
+struct AlwaysEqual;
 
 fn main() {
-    let mut user1 = new_user(String::from("jack"), String::from("qwe@a.com"));
+    let black = Color(0, 0, 0);
 
-    let user2 = User {
-        username: String::from("alice"),
-        ..user1
-    };
-    user1.active = false; // user1 has to be mut
+    let point = Point(1, 2, 4);
 
-    println!(
-        "user1: {}, user2: {}, user1.active: {}",
-        user1.username, user2.username, user1.active
-    );
+    let subject = AlwaysEqual;
 }

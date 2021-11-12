@@ -1,18 +1,30 @@
-fn main() {
-    let s = String::from("hello world");
-
-    let first_world = first_word(&s);
-
-    println!("first world: {}", first_world)
+struct User {
+    username: String,
+    email: String,
+    sign_in_count: u64,
+    active: bool,
 }
 
-// 它使得可以对 String 值和 &str 值使用相同的函数
-fn first_word(s: &str) -> &str {
-    let bytes = s.as_bytes();
-    for (i, &item) in bytes.iter().enumerate() {
-        if item == b' ' {
-            return &s[..i];
-        }
+fn new_user(username: String, email: String) -> User {
+    User {
+        username,
+        email,
+        active: true,
+        sign_in_count: 1,
     }
-    &s[..]
+}
+
+fn main() {
+    let mut user1 = new_user(String::from("jack"), String::from("qwe@a.com"));
+
+    let user2 = User {
+        username: String::from("alice"),
+        ..user1
+    };
+    user1.active = false;
+
+    println!(
+        "user1: {}, user2: {}, user1.active: {}",
+        user1.username, user2.username, user1.active
+    );
 }

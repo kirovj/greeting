@@ -21,7 +21,7 @@ fn main() {
         username: String::from("alice"),
         ..user1
     };
-    user1.active = false;
+    user1.active = false; // user1 has to be mut
 
     println!(
         "user1: {}, user2: {}, user1.active: {}",

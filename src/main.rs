@@ -1,13 +1,26 @@
-struct Color(i32, i32, i32);
+struct Coordinate {
+    left: u32,
+    top: u32,
+    right: u32,
+    bottom: u32,
+}
 
-struct Point(i32, i32, i32);
+fn build_coordinate(left: u32, top: u32, right: u32, bottom: u32) -> Coordinate {
+    assert!(right > left && bottom > top);
+    Coordinate {
+        left,
+        top,
+        right,
+        bottom,
+    }
+}
 
-struct AlwaysEqual;
+fn area(coordinate: &Coordinate) -> u32 {
+    (coordinate.right - coordinate.left) * (coordinate.bottom - coordinate.top)
+}
 
 fn main() {
-    let black = Color(0, 0, 0);
-
-    let point = Point(1, 2, 4);
-
-    let subject = AlwaysEqual;
+    let coordinate = build_coordinate(4, 3, 5, 7);
+    let size = area(&coordinate);
+    println!("size: {}", size);
 }

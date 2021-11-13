@@ -1,3 +1,4 @@
+#[derive(Debug)]
 struct Coordinate {
     left: u32,
     top: u32,
@@ -22,5 +23,5 @@ fn area(coordinate: &Coordinate) -> u32 {
 fn main() {
     let coordinate = build_coordinate(4, 3, 5, 7);
     let size = area(&coordinate);
-    println!("size: {}", size);
+    println!("coordinate: {:#?}, size: {}", coordinate, size);
 }

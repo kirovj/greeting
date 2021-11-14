@@ -16,12 +16,14 @@ fn build_coordinate(left: u32, top: u32, right: u32, bottom: u32) -> Coordinate 
     }
 }
 
-fn area(coordinate: &Coordinate) -> u32 {
-    (coordinate.right - coordinate.left) * (coordinate.bottom - coordinate.top)
+impl Coordinate {
+    fn area(&self) -> u32 {
+        (self.right - self.left) * (self.bottom - self.top)
+    }
 }
 
 fn main() {
     let coordinate = build_coordinate(4, 3, 5, 7);
-    let size = area(&coordinate);
+    let size = coordinate.area();
     println!("coordinate: {:#?}, size: {}", coordinate, size);
 }

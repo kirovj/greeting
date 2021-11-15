@@ -35,4 +35,8 @@ fn main() {
     let five = Some(5);
     let six = plus_one(five);
     let none = plus_one(None);
+    println!("five: {:?}, six: {:?}, none: {:?}", five, six, none);
+
+    let coin = Coin::Quarter(UsState::Alaska);
+    println!("25: {}", value_in_cents(coin))
 }

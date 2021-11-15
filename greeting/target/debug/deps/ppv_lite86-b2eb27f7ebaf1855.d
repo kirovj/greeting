@@ -1,0 +1,11 @@
+D:\Rust\greeting\target\debug\deps\ppv_lite86-b2eb27f7ebaf1855.rmeta: C:\Users\viruser.v-desktop\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.14\src\lib.rs C:\Users\viruser.v-desktop\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.14\src\soft.rs C:\Users\viruser.v-desktop\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.14\src\types.rs C:\Users\viruser.v-desktop\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.14\src\x86_64\mod.rs C:\Users\viruser.v-desktop\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.14\src\x86_64\sse2.rs
+
+D:\Rust\greeting\target\debug\deps\libppv_lite86-b2eb27f7ebaf1855.rlib: C:\Users\viruser.v-desktop\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.14\src\lib.rs C:\Users\viruser.v-desktop\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.14\src\soft.rs C:\Users\viruser.v-desktop\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.14\src\types.rs C:\Users\viruser.v-desktop\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.14\src\x86_64\mod.rs C:\Users\viruser.v-desktop\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.14\src\x86_64\sse2.rs
+
+D:\Rust\greeting\target\debug\deps\ppv_lite86-b2eb27f7ebaf1855.d: C:\Users\viruser.v-desktop\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.14\src\lib.rs C:\Users\viruser.v-desktop\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.14\src\soft.rs C:\Users\viruser.v-desktop\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.14\src\types.rs C:\Users\viruser.v-desktop\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.14\src\x86_64\mod.rs C:\Users\viruser.v-desktop\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.14\src\x86_64\sse2.rs
+
+C:\Users\viruser.v-desktop\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.14\src\lib.rs:
+C:\Users\viruser.v-desktop\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.14\src\soft.rs:
+C:\Users\viruser.v-desktop\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.14\src\types.rs:
+C:\Users\viruser.v-desktop\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.14\src\x86_64\mod.rs:
+C:\Users\viruser.v-desktop\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.14\src\x86_64\sse2.rs:

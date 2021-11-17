@@ -1,15 +1,6 @@
-mod front_of_house {
-    pub mod hosting {
-        pub fn add_to_waitlist() {}
-        fn seat_at_table() {}
-    }
+mod front_of_house;
 
-    mod serving {
-        fn take_over() {}
-        fn serve_order() {}
-        fn take_payment() {}
-    }
-}
+pub use crate::front_of_house::hosting;
 
 mod back_of_house {
     pub struct Breakfast {
@@ -24,18 +15,11 @@ mod back_of_house {
                 seasonal_fruit: String::from("peaches"),
             }
         }
+        pub fn fruit(&self) -> &str {
+            self.seasonal_fruit.as_str()
+        }
     }
-    fn fix_incorrect_order() {
-        cook_order();
-        super::serve_order();
-    }
-
-    fn cook_order() {}
 }
-
-fn serve_order() {}
-
-use crate::front_of_house::hosting;
 
 pub fn eat_at_restaurant() {
     hosting::add_to_waitlist();
@@ -44,6 +28,7 @@ pub fn eat_at_restaurant() {
     // Change our mind about what bread we'd like
     meal.toast = String::from("wheat");
     println!("I'd like {} toast please", meal.toast);
+    println!("today fruit: {}", meal.fruit());
     // The next line won't compile if we uncomment it; we're not allowed
     // to see or modify the seasonal fruit that comes with the meal
     // meal.seasonal_fruit = String::from("blueberries");

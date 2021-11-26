@@ -1,6 +1,12 @@
+#![allow(unused)]
 fn main() {
-    // let v: Vec<i32> = Vec::new();
-    let mut v = vec![1, 2, 3]; // vec! 宏 新建一个包含初值的 vector
+    let v = vec![1, 2, 3, 4, 5];
 
-    v.push(5);
+    let third: &i32 = &v[2];
+    println!("The third element is {}", third);
+
+    match v.get(2) {
+        Some(third) => println!("The third element is {}", third),
+        None => println!("There is no third element."),
+    }
 }

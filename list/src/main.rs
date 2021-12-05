@@ -1,13 +1,11 @@
 #![allow(unused)]
-enum SpreadsheetCell {
-    Int(i32),
-    Float(f64),
-    Text(String),
-}
+
+use std::collections::HashMap;
+
 fn main() {
-    let row = vec![
-        SpreadsheetCell::Int(3),
-        SpreadsheetCell::Text(String::from("blue")),
-        SpreadsheetCell::Float(10.12),
-    ];
+    let mut scores = HashMap::new();
+
+    scores.insert(String::from("Bule"), 10);
+
+    scores.insert(String::from("Yellow"), 50);
 }

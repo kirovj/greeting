@@ -8,7 +8,7 @@ fn main() {
     scores.insert(String::from("Blue"), 10);
     scores.insert(String::from("Yellow"), 50);
 
-    let team_name = String::from("Blue");
-
-    scores.get(&team_name);
+    for (k, v) in scores {
+        println!("{}, {}", k, v);
+    }
 }

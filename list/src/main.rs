@@ -3,13 +3,13 @@
 use std::collections::HashMap;
 
 fn main() {
-    let mut scores = HashMap::new();
+    let text = "hello world wonderful world";
 
-    scores.insert(String::from("Blue"), 10);
-    scores.insert(String::from("Yellow"), 50);
+    let mut map = HashMap::new();
 
-    scores.entry(String::from("Blue")).or_insert(50);
-
-    scores.entry(String::from("red")).or_insert(11);
-    println!("{:?}", scores);
+    for word in text.split_whitespace() {
+        let v = map.entry(word).or_insert(0);
+        *v += 1;
+    }
+    println!("{:?}", map);
 }

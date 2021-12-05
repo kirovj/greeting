@@ -8,7 +8,8 @@ fn main() {
     scores.insert(String::from("Blue"), 10);
     scores.insert(String::from("Yellow"), 50);
 
-    for (k, v) in scores {
-        println!("{}, {}", k, v);
-    }
+    scores.entry(String::from("Blue")).or_insert(50);
+
+    scores.entry(String::from("red")).or_insert(11);
+    println!("{:?}", scores);
 }

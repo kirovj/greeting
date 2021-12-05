@@ -3,9 +3,9 @@
 use std::collections::HashMap;
 
 fn main() {
-    let mut scores = HashMap::new();
+    let teams = vec![String::from("Bule"), String::from("Yellow")];
 
-    scores.insert(String::from("Bule"), 10);
+    let init_scores = vec![10, 50];
 
-    scores.insert(String::from("Yellow"), 50);
+    let score: HashMap<_, _> = teams.iter().zip(init_scores.iter()).collect();
 }

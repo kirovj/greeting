@@ -3,11 +3,12 @@
 use std::collections::HashMap;
 
 fn main() {
-    let field_name = String::from("Favorite color");
-    let field_value = String::from("Blue");
+    let mut scores = HashMap::new();
 
-    let mut map = HashMap::new();
-    map.insert(field_name, field_value);
-    // 这里 field_name 和 field_value 不再有效，
-    // 尝试使用它们看看会出现什么编译错误！
+    scores.insert(String::from("Blue"), 10);
+    scores.insert(String::from("Yellow"), 50);
+
+    let team_name = String::from("Blue");
+
+    scores.get(&team_name);
 }

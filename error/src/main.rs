@@ -1,15 +1,14 @@
-use std::{
-    fs::File,
-    io::{self, Read},
-};
-
-fn read_file_as_name() -> Result<String, io::Error> {
-    let mut s = String::new();
-    File::open("hello.txt")?.read_to_string(&mut s)?;
-    Ok(s)
+fn find_largest(list: &[i32]) -> i32 {
+    let mut largest = list[0];
+    for &item in list {
+        if item > largest {
+            largest = item
+        }
+    }
+    largest
 }
 
 fn main() {
-    let name = read_file_as_name().unwrap();
-    print!("name: {}", &name);
+    let list = vec![10, 34, 23];
+    print!("largest: {}", find_largest(&list))
 }

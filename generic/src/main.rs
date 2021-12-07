@@ -18,5 +18,9 @@ fn main() {
         retweet: false,
     };
 
-    println!("1 new tweet: {}", tweet.sum());
+    println!(
+        "1 new tweet: {}\nfrom: {}",
+        tweet.summarize(),
+        tweet.summarize_author()
+    );
 }

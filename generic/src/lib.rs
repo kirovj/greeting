@@ -1,3 +1,5 @@
+use std::fmt::Display;
+
 pub trait Summary {
     fn summarize(&self) -> String {
         format!("(Read more from {}...)", self.summarize_author())
@@ -45,4 +47,16 @@ pub fn notify(item: impl Summary /* + Display */) {
 
 pub fn notify1<T: Summary /* + Display */>(item: T) {
     println!("Breaking news! {}", item.summarize());
+}
+
+fn some_function<T: Display + Clone, U: Clone + Summary>(t: T, u: U) -> i32 {
+    todo!()
+}
+
+fn some_function1<T, U>(t: T, u: U) -> i32
+where
+    T: Display + Clone,
+    U: Clone + Summary,
+{
+    todo!()
 }

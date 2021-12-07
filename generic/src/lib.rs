@@ -49,6 +49,7 @@ pub fn notify1<T: Summary /* + Display */>(item: T) {
     println!("Breaking news! {}", item.summarize());
 }
 
+/*
 fn some_function<T: Display + Clone, U: Clone + Summary>(t: T, u: U) -> i32 {
     todo!()
 }
@@ -59,4 +60,13 @@ where
     U: Clone + Summary,
 {
     todo!()
+}*/
+
+pub fn build(s: &str) -> impl Summary {
+    Tweet {
+        username: String::from("horse_ebooks"),
+        content: String::from(s),
+        reply: false,
+        retweet: false,
+    }
 }

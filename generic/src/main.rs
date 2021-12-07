@@ -1,4 +1,4 @@
-use generic::{Summary, Tweet};
+use generic::{notify, Summary, Tweet};
 
 // fn find_largest(list: &[i32]) -> i32 {
 //     let mut largest = list[0];
@@ -23,4 +23,6 @@ fn main() {
         tweet.summarize(),
         tweet.summarize_author()
     );
+
+    notify(tweet)
 }

@@ -39,10 +39,10 @@ impl Summary for Tweet {
     }
 }
 
-pub fn notify(item: impl Summary) {
+pub fn notify(item: impl Summary /* + Display */) {
     println!("Breaking news! {}", item.summarize());
 }
 
-pub fn notify1<T: Summary>(item: T) {
+pub fn notify1<T: Summary /* + Display */>(item: T) {
     println!("Breaking news! {}", item.summarize());
 }

@@ -1,3 +1,4 @@
+#![allow(unused)]
 use std::fmt::Display;
 
 fn longest<'a, T>(x: &'a str, y: &'a str, ann: T) -> &'a str

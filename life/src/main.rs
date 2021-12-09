@@ -1,15 +1,14 @@
-struct ImportantExcerpt<'a> {
-    part: &'a str,
-}
+use std::fmt::Display;
 
-impl<'a> ImportantExcerpt<'a> {
-    fn level(&self) -> i32 {
-        3
-    }
-
-    fn announce_and_return_part(&self, announcement: &str) -> &str {
-        println!("Attention please: {}", &announcement);
-        self.part
+fn longest<'a, T>(x: &'a str, y: &'a str, ann: T) -> &'a str
+where
+    T: Display,
+{
+    println!("Announcement! {}", ann);
+    if x.len() > y.len() {
+        x
+    } else {
+        y
     }
 }
 

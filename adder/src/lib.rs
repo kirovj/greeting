@@ -1,14 +1,15 @@
 #![allow(unused)]
 
-#[derive(Debug)]
-pub struct Rectangle {
-    width: u32,
-    height: u32,
+pub struct Guess {
+    value: u32,
 }
 
-impl Rectangle {
-    pub fn can_hold(&self, other: &Rectangle) -> bool {
-        self.height > other.height && self.width > other.width
+impl Guess {
+    pub fn new(value: u32) -> Guess {
+        if value < 1 || value > 200 {
+            panic!("value should between 1, 100")
+        }
+        Guess { value }
     }
 }
 
@@ -17,18 +18,8 @@ mod tests {
     use super::*;
 
     #[test]
-    fn can_hold_test() {
-        let a = Rectangle {
-            width: 8,
-            height: 7,
-        };
-
-        let b = Rectangle {
-            width: 5,
-            height: 6,
-        };
-
-        assert!(a.can_hold(&b));
-        assert!(!b.can_hold(&a))
+    #[should_panic]
+    fn guess_new() {
+        Guess::new(200);
     }
 }

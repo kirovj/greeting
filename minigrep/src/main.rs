@@ -1,6 +1,5 @@
-use minigrep::Config;
+use minigrep::{run, Config};
 use std::env;
-use std::fs;
 use std::process;
 
 fn main() {
@@ -10,12 +9,10 @@ fn main() {
     // |err| close func
     let config = Config::new(&args).unwrap_or_else(|err| {
         println!("parse args err: {}", err);
-        process::exit(1)
+        process::exit(1);
     });
-
-    // expect: panic
-    let contents =
-        fs::read_to_string(config.filename).expect("Something went wrong reading the file");
-
-    println!("With text:\n{}", contents);
+    if let Err(e) = run(config) {
+        println!("App run err: {}", e);
+        process::exit(1);
+    }
 }

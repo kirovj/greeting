@@ -3,7 +3,7 @@ use std::thread;
 use std::time::Duration;
 
 fn generate_workout(intensity: u32, random_number: u32) {
-    let expensive_result = |num| {
+    let expensive_result = |num: u32| -> u32 {
         println!("calculating slowly...");
         thread::sleep(Duration::from_secs(2));
         num

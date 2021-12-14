@@ -1,62 +1,60 @@
 #![allow(unused)]
+use std::collections::HashMap;
+use std::hash::Hash;
+use std::iter::Map;
 use std::thread;
 use std::time::Duration;
 
-struct Cacher<T>
+// F closure, K, V
+struct Cacher<F, K, V>
 where
-    T: Fn(u32) -> u32,
+    F: Fn(K) -> V,
 {
-    calculation: T,
-    value: Option<u32>,
+    func: F,
+    map: HashMap<K, V>,
 }
 
-impl<T> Cacher<T>
+impl<F, K, V> Cacher<F, K, V>
 where
-    T: Fn(u32) -> u32,
+    F: Fn(K) -> V,
+    K: Hash + Eq + Copy,
+    V: Copy,
 {
-    fn new(calculation: T) -> Cacher<T> {
-        Cacher {
-            calculation,
-            value: None,
-        }
+    fn new(func: F) -> Cacher<F, K, V> {
+        let mut map: HashMap<K, V> = HashMap::new();
+        Cacher { func, map }
     }
 
-    fn value(&mut self, arg: u32) -> u32 {
-        match self.value {
-            Some(v) => v,
+    fn value(&mut self, key: K) -> V {
+        let value = self.map.get(&key);
+        match value {
+            Some(value) => *value,
             None => {
-                let v = (self.calculation)(arg);
-                self.value = Some(v);
-                v
+                let value = (self.func)(key);
+                self.map.insert(key, value);
+                value
             }
         }
     }
 }
 
 fn generate_workout(intensity: u32, random_number: u32) {
-    let mut expensive_result = Cacher::new(|num: u32| -> u32 {
-        println!("calculating slowly...");
-        thread::sleep(Duration::from_secs(2));
-        num
-    });
-    if intensity < 25 {
-        println!("Today, do {} pushups!", expensive_result.value(intensity));
-        println!("Next, do {} situps!", expensive_result.value(intensity));
+    let mut calculate = Cacher::new(|s: u32| -> u32 { s + 5 });
+    if random_number < 7 {
+        println!("Today, do {} pushups!", calculate.value(intensity));
+        println!("Next, do {} situps!", calculate.value(intensity));
     } else {
         if random_number == 3 {
             println!("Take a break today! Remember to stay hydrated!");
         } else {
-            println!(
-                "Today, run for {} minutes!",
-                expensive_result.value(intensity)
-            );
+            println!("Today, run for {} minutes!", calculate.value(intensity));
         }
     }
 }
 
 fn main() {
     let simulated_user_specified_value = 10;
-    let simulated_random_number = 7;
+    let simulated_random_number = 3;
 
     generate_workout(simulated_user_specified_value, simulated_random_number);
 }

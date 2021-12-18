@@ -20,6 +20,16 @@ fn hello(name: &str) {
     println!("Hello, {}", name);
 }
 
+struct Person {
+    name: String,
+}
+
+impl Drop for Person {
+    fn drop(&mut self) {
+        println!("drop: {}", self.name);
+    }
+}
+
 fn main() {
     let x = 5;
     let y = MyBox::new(x);
@@ -34,4 +44,16 @@ fn main() {
     hello(&m);
     // hello(&(*m)[..])
     hello("rust");
+
+    let p = Person {
+        name: String::from("bob"),
+    };
+
+    let p1 = Person {
+        name: String::from("judy"),
+    };
+
+    println!("hello! {}", p.name);
+    drop(p);
+    println!("hello! {}", p1.name);
 }

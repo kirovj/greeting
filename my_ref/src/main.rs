@@ -15,10 +15,23 @@ impl<T> Deref for MyBox<T> {
         &self.0
     }
 }
+
+fn hello(name: &str) {
+    println!("Hello, {}", name);
+}
+
 fn main() {
     let x = 5;
     let y = MyBox::new(x);
 
-    assert_eq!(x, *y)
+    assert_eq!(x, *y);
     // *y => *(y.deref())
+
+    let m = MyBox::new(String::from("jack"));
+    // &m &MyBox<String>
+    // deref &String
+    // deref &str
+    hello(&m);
+    // hello(&(*m)[..])
+    hello("rust");
 }

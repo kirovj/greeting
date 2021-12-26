@@ -1,17 +1,11 @@
-use std::{thread, time::Duration};
+use std::thread;
 
 fn main() {
-    let h = thread::spawn(|| {
-        for i in 1..10 {
-            println!("no: {}", i);
-            thread::sleep(Duration::from_millis(1));
-        }
-    });
+    let v = vec![1, 2, 3];
 
-    for i in 1..5 {
-        println!("main no: {}", i);
-        thread::sleep(Duration::from_millis(1));
-    }
+    let h = thread::spawn(move || {
+        println!("list: {:?}", v);
+    });
 
     h.join().unwrap();
 }

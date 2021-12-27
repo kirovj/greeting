@@ -1,11 +1,13 @@
-use std::thread;
+use std::{sync::mpsc, thread};
 
 fn main() {
-    let v = vec![1, 2, 3];
+    let (s, r) = mpsc::channel();
 
-    let h = thread::spawn(move || {
-        println!("list: {:?}", v);
+    thread::spawn(move || {
+        let val = String::from("asd");
+        s.send(val).unwrap();
     });
 
-    h.join().unwrap();
+    let val = r.recv().unwrap();
+    println!("recv: {}", val);
 }
